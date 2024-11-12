@@ -12,13 +12,13 @@ public class Main {
         switch (n) {
             case 17:
                 out.println("Задание 1.7: Ввод имён.");
-                out.println("Введите имя (обязательно при составлении полного имени): ");
+                out.println("Введите имя: ");
                 String firstName = in.nextLine();
 
                 out.println("Введите фамилию: ");
                 String lastName = in.nextLine();
 
-                out.println("Введите отчество (только если была введена фамилия): ");
+                out.println("Введите отчество: ");
                 String patronymic = in.nextLine();
 
                 Name name = new Name(firstName, lastName, patronymic);
