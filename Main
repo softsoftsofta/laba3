@@ -11,8 +11,8 @@ public class Main {
         in.nextLine();
         switch (n) {
             case 17:
-                out.println("Задание 1.3(3.4). Ввод имён.");
-                out.println("Введите имя (обязательно при составлении имени): ");
+                out.println("Задание 1.7: Ввод имён.");
+                out.println("Введите имя (обязательно при составлении полного имени): ");
                 String firstName = in.nextLine();
 
                 out.println("Введите фамилию: ");
@@ -25,43 +25,39 @@ public class Main {
                 Name name2 = new Name();
                 name.displayInfo();
                 break;
-
             case 14, 31:
                 out.println("Задание 5.5. Дроби.");
+                out.println("Создайте первую дробь.");
                 Decimal f1 = new Decimal();
 
-                Decimal f2 = new Decimal(4,-6);
-                Decimal f3 = new Decimal(1,5);
+                out.println("Создайте вторую дробь.");
+                Decimal f2 = new Decimal();
 
-                String str1 = f1.getDecimal();
-                out.println(str1);
-                String str2 = f2.getDecimal();
-                out.println(str2);
+                out.println("Выберите нужную операцию(1 - слож, 2 - вычет, 3 - умнож, 4 - дел): ");
+                int nn = in.nextInt();
 
-                Decimal result1 = f1.sum(f2);
-                Decimal result2 = f1.minus(f2);
-                Decimal result3 = f1.mult(f2);
-                Decimal result4 = f1.div(f2);
-
-                Decimal result5 = f1.sum(f2).div(f3).minus(5);
-
+                switch(nn) {
+                    case 1:
+                        Decimal result1 = f1.sum(f2);
+                        out.println("Ответ: " + result1.getDecimal());
+                        break;
+                    case 2:
+                        Decimal result2 = f1.minus(f2);
+                        out.println("Ответ: " + result2.getDecimal());
+                        break;
+                    case 3:
+                        Decimal result3 = f1.mult(f2);
+                        out.println("Ответ: " + result3.getDecimal());
+                        break;
+                    case 4:
+                        Decimal result4 = f1.div(f2);
+                        out.println("Ответ: " + result4.getDecimal());
+                        break;
+                    default:
+                        throw new IllegalStateException("Unexpected value: " + nn);
+                }
                 break;
-
-            case 22:
-                Secret secret1 = new Secret("Alice", "Этот прицел просто имба!");
-                System.out.println(secret1);
-
-                Secret secret2 = new Secret(secret1, "Bob"); // Передача секрета Bob'у
-
-                System.out.println(secret2); // Вывод: Bob: это секрет!
-                System.out.println(secret2.getKeeperCount()); // Вывод: 2
-                System.out.println(secret2.getRemainingHolders()); // Вывод: 0
-                System.out.println(secret2.getKeeperName(0));
-                System.out.println(secret2.getKeeperName(1));// Вывод: Alice
-                System.out.println(secret2.getDifferenceWithHolder(1)); // Вывод: 1 (разница в количестве символов между секретом Alice и Bob)
-
-                break;
-            default:
+default:
                 throw new IllegalStateException("Unexpected value: " + n);
         }
 
