@@ -1,0 +1,74 @@
+import java.util.Objects;
+import java.util.Scanner;
+
+import static java.lang.System.out;
+
+class Name {
+
+    private String lastName;
+    private final String firstName;
+    private String patronymic;
+    Scanner in = new Scanner(System.in);
+
+    public Name(String firstName, String lastName, String patronymic) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.patronymic = patronymic;
+        correctionCheck();
+    }
+
+    public Name() {
+        this.lastName = in.nextLine();
+        this.firstName = in.nextLine();
+        this.patronymic = in.nextLine();
+        correctionCheck();
+    }
+
+    public Name createName() {
+        out.println("Введите имя: ");
+        String firstName = in.nextLine();
+
+        out.println("Введите фамилию: ");
+        String lastName = in.nextLine();
+
+        out.println("Введите отчество: ");
+        String patronymic = in.nextLine();
+
+        Name name = new Name(firstName, lastName, patronymic);
+        name.correctionCheck();
+        return name;
+    }
+
+    void correctionCheck() {
+        if (Objects.equals(patronymic, "") && Objects.equals(firstName, "") && Objects.equals(lastName, ""))
+            throw new IllegalArgumentException("Имя не может быть составлено таким образом");
+    }
+
+    void displayInfo() {
+        String name = "";
+
+        if (!Objects.equals(lastName, "")) {
+            if (!lastName.matches("[а-яА-ЯёЁ]+")) {
+                throw new IllegalArgumentException("Могут быть использованы только символы русского алфавита");
+            }
+            name += lastName + " ";
+        }
+
+        if (!Objects.equals(firstName, "")) {
+            if (!firstName.matches("[а-яА-ЯёЁ]+")) {
+                throw new IllegalArgumentException("Могут быть использованы только символы русского алфавита");
+            }
+            name += firstName + " ";
+        }
+
+        if (!Objects.equals(patronymic, "")) {
+            if (!patronymic.matches("[а-яА-ЯёЁ]+")) {
+                throw new IllegalArgumentException("Могут быть использованы только символы русского алфавита");
+            }
+            name += patronymic + " ";
+        }
+
+        out.println("Имя: " + name);
+
+    }
+}
