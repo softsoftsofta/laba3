@@ -12,17 +12,7 @@ public class Main {
         switch (n) {
             case 17:
                 out.println("Задание 1.7: Ввод имён.");
-                out.println("Введите имя: ");
-                String firstName = in.nextLine();
-
-                out.println("Введите фамилию: ");
-                String lastName = in.nextLine();
-
-                out.println("Введите отчество: ");
-                String patronymic = in.nextLine();
-
-                Name name = new Name(firstName, lastName, patronymic);
-                Name name2 = new Name();
+                Name name = new Name();
                 name.displayInfo();
                 break;
             case 14, 31:
