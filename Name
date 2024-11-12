@@ -18,25 +18,16 @@ class Name {
     }
 
     public Name() {
-        this.lastName = in.nextLine();
-        this.firstName = in.nextLine();
-        this.patronymic = in.nextLine();
-        correctionCheck();
-    }
-
-    public Name createName() {
         out.println("Введите имя: ");
-        String firstName = in.nextLine();
+        this.firstName = in.nextLine();
 
         out.println("Введите фамилию: ");
-        String lastName = in.nextLine();
+        this.lastName = in.nextLine();
 
         out.println("Введите отчество: ");
-        String patronymic = in.nextLine();
+        this.patronymic = in.nextLine();
 
-        Name name = new Name(firstName, lastName, patronymic);
-        name.correctionCheck();
-        return name;
+        this.correctionCheck();
     }
 
     void correctionCheck() {
